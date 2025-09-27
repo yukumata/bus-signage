@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Timetable update="2025-09-24">
+    <Stop name="工学院大学">
+        <Route name="K02" destination="工02 直通 JR・京王八王子駅行">
+            <Weekday>
+                <Departure time="0830" note=""/>
+                <Departure time="1150" note="直通"/>
+                <Departure time="1220" note="直通"/>
+                <Departure time="1250" note="直通"/>
+                <Departure time="1325" note="直通"/>
+                <Departure time="1340" note="直通"/>
+                <Departure time="1355" note="直通"/>
+                <Departure time="1415" note="直通"/>
+                <Departure time="1445" note="直通"/>
+                <Departure time="1515" note="直通"/>
+                <Departure time="1545" note="直通"/>
+                <Departure time="1555" note="直通"/>
+                <Departure time="1605" note="直通"/>
+                <Departure time="1615" note="直通"/>
+                <Departure time="1645" note="直通"/>
+                <Departure time="1705" note="直通"/>
+                <Departure time="1715" note="直通"/>
+                <Departure time="1725" note="直通"/>
+                <Departure time="1735" note="直通"/>
+                <Departure time="1745" note="直通"/>
+                <Departure time="1755" note="直通"/>
+                <Departure time="1810" note="直通"/>
+                <Departure time="1840" note="直通"/>
+                <Departure time="1900" note="直通"/>
+                <Departure time="1920" note="直通"/>
+                <Departure time="1940" note="直通"/>
+                <Departure time="2000" note="直通"/>
+                <Departure time="2020" note="直通"/>
+                <Departure time="2040" note="直通"/>
+                <Departure time="2108" note=""/>
+            </Weekday>
+            <Saturday>
+                <Departure time="1150" note="直通"/>
+                <Departure time="1245" note="直通"/>
+                <Departure time="1333" note="直通"/>
+                <Departure time="1420" note="直通"/>
+                <Departure time="1550" note="直通"/>
+                <Departure time="1615" note="直通"/>
+                <Departure time="1645" note="直通"/>
+                <Departure time="1715" note="直通"/>
+                <Departure time="1740" note="直通"/>
+                <Departure time="1815" note="直通"/>
+                <Departure time="1930" note="直通"/>
+            </Saturday>
+            <Holiday>
+                <!-- 運行なし-->
+            </Holiday>
+        </Route>
+        <Route name="T03" destination="高月03 拝島駅行">
+            <Weekday>
+                <Departure time="0825" note=""/>
+                <Departure time="0855" note=""/>
+                <Departure time="1000" note=""/>
+                <Departure time="1110" note=""/>
+                <Departure time="1220" note=""/>
+                <Departure time="1340" note=""/>
+                <Departure time="1435" note=""/>
+                <Departure time="1600" note=""/>
+                <Departure time="1625" note=""/>
+                <Departure time="1745" note=""/>
+                <Departure time="1825" note=""/>
+                <Departure time="1915" note=""/>
+                <Departure time="2035" note=""/>
+                <Departure time="2153" note=""/>
+            </Weekday>
+
+            <Saturday>
+                <Departure time="0812" note=""/>
+                <Departure time="0845" note=""/>
+                <Departure time="1000" note=""/>
+                <Departure time="1110" note=""/>
+                <Departure time="1220" note=""/>
+                <Departure time="1323" note=""/>
+                <Departure time="1435" note=""/>
+                <Departure time="1555" note=""/>
+                <Departure time="1655" note=""/>
+                <Departure time="1730" note=""/>
+                <Departure time="1810" note=""/>
+                <Departure time="1925" note=""/>
+                <Departure time="2035" note=""/>
+            </Saturday>
+
+            <Holiday>
+                <Departure time="0812" note=""/>
+                <Departure time="0845" note=""/>
+                <Departure time="1000" note=""/>
+                <Departure time="1110" note=""/>
+                <Departure time="1220" note=""/>
+                <Departure time="1323" note=""/>
+                <Departure time="1435" note=""/>
+                <Departure time="1555" note=""/>
+                <Departure time="1655" note=""/>
+                <Departure time="1730" note=""/>
+                <Departure time="1810" note=""/>
+                <Departure time="1925" note=""/>
+                <Departure time="2035" note=""/>
+            </Holiday>
+        </Route>
+    </Stop>
+    <Stop name="工学院大学西">
+        <Route name="K01-n" destination="工01 楢原町行">
+            <Weekday>
+                <Departure time="0713" note=""/>
+                <Departure time="0737" note=""/>
+                <Departure time="0805" note=""/>
+                <Departure time="0826" note=""/>
+                <Departure time="0847" note=""/>
+                <Departure time="0907" note=""/>
+                <Departure time="0926" note=""/>
+                <Departure time="0946" note=""/>
+                <Departure time="1006" note=""/>
+                <Departure time="1026" note=""/>
+                <Departure time="1046" note=""/>
+                <Departure time="1109" note=""/>
+                <Departure time="1129" note=""/>
+                <Departure time="1149" note=""/>
+                <Departure time="1209" note=""/>
+                <Departure time="1229" note=""/>
+                <Departure time="1249" note=""/>
+                <Departure time="1309" note=""/>
+                <Departure time="1329" note=""/>
+                <Departure time="1349" note=""/>
+                <Departure time="1409" note=""/>
+                <Departure time="1429" note=""/>
+                <Departure time="1449" note=""/>
+                <Departure time="1509" note=""/>
+                <Departure time="1529" note=""/>
+                <Departure time="1549" note=""/>
+                <Departure time="1609" note=""/>
+                <Departure time="1629" note=""/>
+                <Departure time="1649" note=""/>
+                <Departure time="1709" note=""/>
+                <Departure time="1728" note=""/>
+                <Departure time="1753" note=""/>
+                <Departure time="1820" note=""/>
+                <Departure time="1836" note=""/>
+                <Departure time="1852" note=""/>
+                <Departure time="1920" note=""/>
+                <Departure time="1936" note=""/>
+                <Departure time="2001" note=""/>
+                <Departure time="2021" note=""/>
+                <Departure time="2041" note=""/>
+                <Departure time="2101" note=""/>
+                <Departure time="2121" note=""/>
+                <Departure time="2140" note=""/>
+                <Departure time="2154" note=""/>
+                <Departure time="2217" note=""/>
+                <Departure time="2236" note=""/>
+                <Departure time="2256" note=""/>
+                <Departure time="2316" note=""/>
+            </Weekday>
+            <Saturday>
+                <Departure time="0722" note=""/>
+                <Departure time="0747" note=""/>
+                <Departure time="0810" note=""/>
+                <Departure time="0829" note=""/>
+                <Departure time="0849" note=""/>
+                <Departure time="0909" note=""/>
+                <Departure time="0929" note=""/>
+                <Departure time="0949" note=""/>
+                <Departure time="1009" note=""/>
+                <Departure time="1029" note=""/>
+                <Departure time="1049" note=""/>
+                <Departure time="1109" note=""/>
+                <Departure time="1129" note=""/>
+                <Departure time="1149" note=""/>
+                <Departure time="1209" note=""/>
+                <Departure time="1229" note=""/>
+                <Departure time="1249" note=""/>
+                <Departure time="1309" note=""/>
+                <Departure time="1329" note=""/>
+                <Departure time="1349" note=""/>
+                <Departure time="1409" note=""/>
+                <Departure time="1429" note=""/>
+                <Departure time="1449" note=""/>
+                <Departure time="1509" note=""/>
+                <Departure time="1529" note=""/>
+                <Departure time="1549" note=""/>
+                <Departure time="1609" note=""/>
+                <Departure time="1629" note=""/>
+                <Departure time="1649" note=""/>
+                <Departure time="1709" note=""/>
+                <Departure time="1729" note=""/>
+                <Departure time="1749" note=""/>
+                <Departure time="1809" note=""/>
+                <Departure time="1829" note=""/>
+                <Departure time="1849" note=""/>
+                <Departure time="1909" note=""/>
+                <Departure time="1930" note=""/>
+                <Departure time="1950" note=""/>
+                <Departure time="2010" note=""/>
+                <Departure time="2029" note=""/>
+                <Departure time="2049" note=""/>
+                <Departure time="2109" note=""/>
+                <Departure time="2131" note=""/>
+                <Departure time="2152" note=""/>
+                <Departure time="2206" note=""/>
+                <Departure time="2234" note=""/>
+                <Departure time="2304" note=""/>
+            </Saturday>
+            <Holiday>
+                <Departure time="0722" note=""/>
+                <Departure time="0747" note=""/>
+                <Departure time="0810" note=""/>
+                <Departure time="0829" note=""/>
+                <Departure time="0849" note=""/>
+                <Departure time="0909" note=""/>
+                <Departure time="0929" note=""/>
+                <Departure time="0949" note=""/>
+                <Departure time="1009" note=""/>
+                <Departure time="1029" note=""/>
+                <Departure time="1049" note=""/>
+                <Departure time="1109" note=""/>
+                <Departure time="1129" note=""/>
+                <Departure time="1149" note=""/>
+                <Departure time="1209" note=""/>
+                <Departure time="1229" note=""/>
+                <Departure time="1249" note=""/>
+                <Departure time="1309" note=""/>
+                <Departure time="1329" note=""/>
+                <Departure time="1349" note=""/>
+                <Departure time="1409" note=""/>
+                <Departure time="1429" note=""/>
+                <Departure time="1449" note=""/>
+                <Departure time="1509" note=""/>
+                <Departure time="1529" note=""/>
+                <Departure time="1549" note=""/>
+                <Departure time="1609" note=""/>
+                <Departure time="1629" note=""/>
+                <Departure time="1649" note=""/>
+                <Departure time="1709" note=""/>
+                <Departure time="1729" note=""/>
+                <Departure time="1749" note=""/>
+                <Departure time="1809" note=""/>
+                <Departure time="1829" note=""/>
+                <Departure time="1849" note=""/>
+                <Departure time="1909" note=""/>
+                <Departure time="1930" note=""/>
+                <Departure time="1950" note=""/>
+                <Departure time="2010" note=""/>
+                <Departure time="2029" note=""/>
+                <Departure time="2049" note=""/>
+                <Departure time="2109" note=""/>
+                <Departure time="2131" note=""/>
+                <Departure time="2152" note=""/>
+                <Departure time="2206" note=""/>
+                <Departure time="2234" note=""/>
+                <Departure time="2304" note=""/>
+            </Holiday>
+        </Route>
+        <Route name="K01-h" destination="工01 JR・京王八王子駅行">
+            <Weekday>
+                <Departure time="0539" note=""/>
+                <Departure time="0553" note=""/>
+                <Departure time="0612" note=""/>
+                <Departure time="0627" note=""/>
+                <Departure time="0645" note=""/>
+                <Departure time="0701" note=""/>
+                <Departure time="0713" note=""/>
+                <Departure time="0733" note=""/>
+                <Departure time="0746" note=""/>
+                <Departure time="0805" note=""/>
+                <Departure time="0817" note=""/>
+                <Departure time="0835" note=""/>
+                <Departure time="0855" note=""/>
+                <Departure time="0920" note=""/>
+                <Departure time="0932" note=""/>
+                <Departure time="0955" note=""/>
+                <Departure time="1010" note=""/>
+                <Departure time="1030" note=""/>
+                <Departure time="1050" note=""/>
+                <Departure time="1110" note=""/>
+                <Departure time="1125" note=""/>
+                <Departure time="1150" note=""/>
+                <Departure time="1210" note=""/>
+                <Departure time="1225" note=""/>
+                <Departure time="1250" note=""/>
+                <Departure time="1310" note=""/>
+                <Departure time="1325" note=""/>
+                <Departure time="1350" note=""/>
+                <Departure time="1410" note=""/>
+                <Departure time="1425" note=""/>
+                <Departure time="1450" note=""/>
+                <Departure time="1510" note=""/>
+                <Departure time="1525" note=""/>
+                <Departure time="1550" note=""/>
+                <Departure time="1610" note=""/>
+                <Departure time="1625" note=""/>
+                <Departure time="1656" note=""/>
+                <Departure time="1710" note=""/>
+                <Departure time="1730" note=""/>
+                <Departure time="1752" note=""/>
+                <Departure time="1812" note=""/>
+                <Departure time="1828" note=""/>
+                <Departure time="1855" note=""/>
+                <Departure time="1911" note=""/>
+                <Departure time="1925" note=""/>
+                <Departure time="1955" note=""/>
+                <Departure time="2011" note=""/>
+                <Departure time="2031" note=""/>
+                <Departure time="2056" note=""/>
+                <Departure time="2130" note=""/>
+                <Departure time="2144" note=""/>
+                <Departure time="2204" note=""/>
+                <Departure time="2224" note=""/>
+            </Weekday>
+            <Saturday>
+                <Departure time="0539" note=""/>
+                <Departure time="0615" note=""/>
+                <Departure time="0627" note=""/>
+                <Departure time="0647" note=""/>
+                <Departure time="0716" note=""/>
+                <Departure time="0735" note=""/>
+                <Departure time="0749" note=""/>
+                <Departure time="0809" note=""/>
+                <Departure time="0829" note=""/>
+                <Departure time="0849" note=""/>
+                <Departure time="0913" note=""/>
+                <Departure time="0932" note=""/>
+                <Departure time="0950" note=""/>
+                <Departure time="1012" note=""/>
+                <Departure time="1030" note=""/>
+                <Departure time="1052" note=""/>
+                <Departure time="1112" note=""/>
+                <Departure time="1125" note=""/>
+                <Departure time="1150" note=""/>
+                <Departure time="1212" note=""/>
+                <Departure time="1225" note=""/>
+                <Departure time="1250" note=""/>
+                <Departure time="1312" note=""/>
+                <Departure time="1325" note=""/>
+                <Departure time="1350" note=""/>
+                <Departure time="1412" note=""/>
+                <Departure time="1425" note=""/>
+                <Departure time="1450" note=""/>
+                <Departure time="1512" note=""/>
+                <Departure time="1525" note=""/>
+                <Departure time="1550" note=""/>
+                <Departure time="1612" note=""/>
+                <Departure time="1625" note=""/>
+                <Departure time="1650" note=""/>
+                <Departure time="1712" note=""/>
+                <Departure time="1725" note=""/>
+                <Departure time="1750" note=""/>
+                <Departure time="1813" note=""/>
+                <Departure time="1828" note=""/>
+                <Departure time="1842" note=""/>
+                <Departure time="1910" note=""/>
+                <Departure time="1925" note=""/>
+                <Departure time="1942" note=""/>
+                <Departure time="2009" note=""/>
+                <Departure time="2024" note=""/>
+                <Departure time="2045" note=""/>
+                <Departure time="2109" note=""/>
+                <Departure time="2129" note=""/>
+                <Departure time="2155" note=""/>
+                <Departure time="2219" note=""/>
+            </Saturday>
+            <Holiday>
+                <Departure time="0539" note=""/>
+                <Departure time="0615" note=""/>
+                <Departure time="0627" note=""/>
+                <Departure time="0647" note=""/>
+                <Departure time="0716" note=""/>
+                <Departure time="0735" note=""/>
+                <Departure time="0749" note=""/>
+                <Departure time="0809" note=""/>
+                <Departure time="0829" note=""/>
+                <Departure time="0849" note=""/>
+                <Departure time="0913" note=""/>
+                <Departure time="0932" note=""/>
+                <Departure time="0950" note=""/>
+                <Departure time="1012" note=""/>
+                <Departure time="1030" note=""/>
+                <Departure time="1052" note=""/>
+                <Departure time="1112" note=""/>
+                <Departure time="1125" note=""/>
+                <Departure time="1150" note=""/>
+                <Departure time="1212" note=""/>
+                <Departure time="1225" note=""/>
+                <Departure time="1250" note=""/>
+                <Departure time="1312" note=""/>
+                <Departure time="1325" note=""/>
+                <Departure time="1350" note=""/>
+                <Departure time="1412" note=""/>
+                <Departure time="1425" note=""/>
+                <Departure time="1450" note=""/>
+                <Departure time="1512" note=""/>
+                <Departure time="1525" note=""/>
+                <Departure time="1550" note=""/>
+                <Departure time="1612" note=""/>
+                <Departure time="1625" note=""/>
+                <Departure time="1650" note=""/>
+                <Departure time="1712" note=""/>
+                <Departure time="1725" note=""/>
+                <Departure time="1750" note=""/>
+                <Departure time="1813" note=""/>
+                <Departure time="1828" note=""/>
+                <Departure time="1842" note=""/>
+                <Departure time="1910" note=""/>
+                <Departure time="1925" note=""/>
+                <Departure time="1942" note=""/>
+                <Departure time="2009" note=""/>
+                <Departure time="2024" note=""/>
+                <Departure time="2045" note=""/>
+                <Departure time="2109" note=""/>
+                <Departure time="2129" note=""/>
+                <Departure time="2155" note=""/>
+                <Departure time="2219" note=""/>
+            </Holiday>
+        </Route>
+    </Stop>
+</Timetable>
