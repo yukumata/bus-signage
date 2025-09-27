@@ -1,0 +1,25 @@
+.screen {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 4fr 7fr;
+  width: 100vw;
+  height: 100vh;
+  font-variant-numeric: tabular-nums;
+}
+
+.section0 {
+  display: grid;
+  place-items: center;
+  font-size: 6rem;
+  font-weight: bold;
+  color: white;
+  background: #40ba8d;
+  overflow: hidden;
+}
+
+.section1{
+  display: grid;
+  flex-direction: column;
+  color: white;
+  height: 100%;
+}
