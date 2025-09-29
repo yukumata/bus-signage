@@ -42,7 +42,7 @@ function App() {
       <div className="screen">
         <div className="section0">
           <Clock />
-          <img src="public\logo_white-min.png" alt="logo" width="500" />
+          <img src=".\logo_white-min.png" alt="logo" width="500" />
         </div>
         <div className="section1">
           <Timetable maxItems={maxItems} />
