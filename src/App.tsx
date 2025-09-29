@@ -5,7 +5,7 @@ import Timetable from './components/Timetable'
 import { KeyboardShortcuts } from './hooks/KeyboardShortcuts';
 
 function App() {
-  const [maxItems, setMaxItems] = useState(2);
+  const [maxItems, setMaxItems] = useState(3);
 
   KeyboardShortcuts([
     {
