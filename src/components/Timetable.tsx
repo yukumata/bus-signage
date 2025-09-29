@@ -55,6 +55,9 @@ function Timetable({ maxItems }: { maxItems: number }) {
   const [publicBusTimetable, setPublicBusTimetable] = useState<PublicBusTimetable | null>(null);
   const [schoolBusTimetable, setSchoolBusTimetable] = useState<SchoolBusTimetable | null>(null);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [publicBusUpdate, setPublicBusUpdate] = useState<string | null>(null);
+  const [schoolBusUpdate, setSchoolBusUpdate] = useState<string | null>(null);
+
 
   const getDayType = (date: Date): 'Weekday' | 'Saturday' | 'Holiday' => {
     const day = date.getDay();
@@ -124,15 +127,19 @@ function Timetable({ maxItems }: { maxItems: number }) {
     };
     const loadTimetables = async () => {
         try {
-        const parser = new DOMParser();
-        const publicBusRes = await fetch('./PublicBus.xml');
-        const publicBusText = await publicBusRes.text();
-        const publicBusXml = parser.parseFromString(publicBusText, "application/xml");
-        setPublicBusTimetable(parsePublicBusXml(publicBusXml));
-        const schoolBusRes = await fetch('./SchoolBus_Regular.xml');
-        const schoolBusText = await schoolBusRes.text();
-        const schoolBusXml = parser.parseFromString(schoolBusText, "application/xml");
-        setSchoolBusTimetable(parseSchoolBusXml(schoolBusXml));
+          const parser = new DOMParser();
+          const publicBusRes = await fetch('./PublicBus.xml');
+          const publicBusText = await publicBusRes.text();
+          const publicBusXml = parser.parseFromString(publicBusText, "application/xml");
+          const publicBusTag = publicBusXml.getElementsByTagName("Timetable")[0];
+          if (publicBusTag) setPublicBusUpdate(publicBusTag.getAttribute("update"));
+          setPublicBusTimetable(parsePublicBusXml(publicBusXml));
+          const schoolBusRes = await fetch('./SchoolBus_Regular.xml');
+          const schoolBusText = await schoolBusRes.text();
+          const schoolBusXml = parser.parseFromString(schoolBusText, "application/xml");
+          const schoolBusTag = schoolBusXml.getElementsByTagName("Timetable")[0];
+          if (schoolBusTag) setSchoolBusUpdate(schoolBusTag.getAttribute("update"));
+          setSchoolBusTimetable(parseSchoolBusXml(schoolBusXml));
         } catch (error) {
             console.error("Error loading or parsing timetable XML:", error);
         }
@@ -146,9 +153,12 @@ function Timetable({ maxItems }: { maxItems: number }) {
     <>
       <div className="timetable-field">
         <div className="table1">
-          <div className="label1">公共バス（西東京バス）</div>
-          <div className="timetable1">
-            {isLoading ? <div className="loading">読込中...</div> : <>
+          <div className="label1">
+            公共バス(西東京バス)
+            <div className="update-date">{publicBusUpdate && <div>最終更新: {publicBusUpdate}</div>}</div>
+          </div>
+          {isLoading ? <div className="loading">読込中...</div> : <>
+            <div className="timetable1">
               <div className="bus">
                 <div className="bus-info">
                   <div className="busname">工学院大学 <span className="destination">工02 直通 JR・京王八王子駅行</span></div>
@@ -173,11 +183,14 @@ function Timetable({ maxItems }: { maxItems: number }) {
                   <BusTimetableDisplay schedule={publicBusTimetable?.["工学院大学西"]?.["K01-h"]} currentTime={currentTime} dayType={dayType} upcomingCount={maxItems} />
                 </div>
               </div>
-            </>}
-          </div>
+            </div>
+          </>}
         </div>
         <div className="table2">
-          <div className="label2">スクールバス</div>
+          <div className="label2">
+            スクールバス
+            <div className="update-date">{schoolBusUpdate && <div>最終更新: {schoolBusUpdate}</div>}</div>
+          </div>
           {isLoading ? <div className="loading">読込中...</div> : <>
             <div className="timetable2">
               <div className="bus">

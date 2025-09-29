@@ -27,9 +27,19 @@
     font-size: 2rem;
     padding: 0.5rem 0;
     flex: 0 0 auto;
+    position: relative;
 }
 .label1 { background: #4788ff; }
 .label2 { background: #ff6347; }
+
+.update-date {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 0.75rem;
+    padding-right: 0.5rem;
+    opacity: 0.8;
+}
 
 .timetable1 {
     flex: 1 1 auto;
