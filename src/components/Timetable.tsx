@@ -155,7 +155,7 @@ function Timetable({ maxItems }: { maxItems: number }) {
         <div className="table1">
           <div className="label1">
             公共バス(西東京バス)
-            <div className="update-date">{publicBusUpdate && <div>最終更新: {publicBusUpdate}</div>}</div>
+            <div className="update-date">{publicBusUpdate && <div>更新: {publicBusUpdate}</div>}</div>
           </div>
           {isLoading ? <div className="loading">読込中...</div> : <>
             <div className="timetable1">
@@ -189,7 +189,7 @@ function Timetable({ maxItems }: { maxItems: number }) {
         <div className="table2">
           <div className="label2">
             スクールバス
-            <div className="update-date">{schoolBusUpdate && <div>最終更新: {schoolBusUpdate}</div>}</div>
+            <div className="update-date">{schoolBusUpdate && <div>更新: {schoolBusUpdate}</div>}</div>
           </div>
           {isLoading ? <div className="loading">読込中...</div> : <>
             <div className="timetable2">
