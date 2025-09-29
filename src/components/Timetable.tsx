@@ -25,7 +25,7 @@ interface SchoolBusTimetable {
     [routeName: string]: RouteSchedule;
 }
 
-const BusTimetableDisplay = ({ schedule, currentTime, dayType }: { schedule?: RouteSchedule, currentTime: Date, dayType: 'Weekday' | 'Saturday' | 'Holiday', upcomingCount?: number }) => {
+const BusTimetableDisplay = ({ schedule, currentTime, dayType, upcomingCount = 4 }: { schedule?: RouteSchedule, currentTime: Date, dayType: 'Weekday' | 'Saturday' | 'Holiday', upcomingCount?: number }) => {
   if (!schedule) {
     return <div className="departures">時刻表データがありません</div>;
   }
@@ -33,11 +33,9 @@ const BusTimetableDisplay = ({ schedule, currentTime, dayType }: { schedule?: Ro
   const departures = schedule[dayType] || [];
   const currentTimeStr = `${String(currentTime.getHours()).padStart(2, '0')}${String(currentTime.getMinutes()).padStart(2, '0')}`;
 
-  const MAX_ITEMS = 4;
-
   const upcoming = departures
     .filter(dep => dep.time > currentTimeStr)
-    .slice(0, MAX_ITEMS);
+    .slice(0, upcomingCount);
   if (upcoming.length === 0) {
     return <div className="departures">本日の運行は終了しました</div>;
   }
@@ -53,7 +51,7 @@ const BusTimetableDisplay = ({ schedule, currentTime, dayType }: { schedule?: Ro
   );
 };
 
-function Timetable() {
+function Timetable({ maxItems }: { maxItems: number }) {
   const [publicBusTimetable, setPublicBusTimetable] = useState<PublicBusTimetable | null>(null);
   const [schoolBusTimetable, setSchoolBusTimetable] = useState<SchoolBusTimetable | null>(null);
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -154,25 +152,25 @@ function Timetable() {
               <div className="bus">
                 <div className="bus-info">
                   <div className="busname">工学院大学 <span className="destination">工02 直通 JR・京王八王子駅行</span></div>
-                  <BusTimetableDisplay schedule={publicBusTimetable?.["工学院大学"]?.["K02"]} currentTime={currentTime} dayType={dayType} />
+                  <BusTimetableDisplay schedule={publicBusTimetable?.["工学院大学"]?.["K02"]} currentTime={currentTime} dayType={dayType} upcomingCount={maxItems} />
                 </div>
               </div>
               <div className="bus">
                 <div className="bus-info">
                   <div className="busname">工学院大学 <span className="destination">高月03 拝島駅行</span></div>
-                  <BusTimetableDisplay schedule={publicBusTimetable?.["工学院大学"]?.["T03"]} currentTime={currentTime} dayType={dayType} />
+                  <BusTimetableDisplay schedule={publicBusTimetable?.["工学院大学"]?.["T03"]} currentTime={currentTime} dayType={dayType} upcomingCount={maxItems} />
                 </div>
               </div>
               <div className="bus">
                 <div className="bus-info">
                   <div className="busname">工学院大学西 <span className="destination">工01 楢原町行</span></div>
-                  <BusTimetableDisplay schedule={publicBusTimetable?.["工学院大学西"]?.["K01-n"]} currentTime={currentTime} dayType={dayType} />
+                  <BusTimetableDisplay schedule={publicBusTimetable?.["工学院大学西"]?.["K01-n"]} currentTime={currentTime} dayType={dayType} upcomingCount={maxItems} />
                 </div>
               </div>
               <div className="bus">
                 <div className="bus-info">
                   <div className="busname">工学院大学西 <span className="destination">工01 JR・京王八王子駅行</span></div>
-                  <BusTimetableDisplay schedule={publicBusTimetable?.["工学院大学西"]?.["K01-h"]} currentTime={currentTime} dayType={dayType} />
+                  <BusTimetableDisplay schedule={publicBusTimetable?.["工学院大学西"]?.["K01-h"]} currentTime={currentTime} dayType={dayType} upcomingCount={maxItems} />
                 </div>
               </div>
             </>}
@@ -185,25 +183,25 @@ function Timetable() {
               <div className="bus">
                 <div className="bus-info">
                   <div className="busname">JR八王子駅南口行</div>
-                  <BusTimetableDisplay schedule={schoolBusTimetable?.["JR八王子駅南口行"]} currentTime={currentTime} dayType={dayType} />
+                  <BusTimetableDisplay schedule={schoolBusTimetable?.["JR八王子駅南口行"]} currentTime={currentTime} dayType={dayType} upcomingCount={maxItems} />
                 </div>
               </div>
               <div className="bus">
                 <div className="bus-info">
                   <div className="busname">京王八王子駅行</div>
-                  <BusTimetableDisplay schedule={schoolBusTimetable?.["京王八王子行"]} currentTime={currentTime} dayType={dayType} />
+                  <BusTimetableDisplay schedule={schoolBusTimetable?.["京王八王子行"]} currentTime={currentTime} dayType={dayType} upcomingCount={maxItems} />
                 </div>
               </div>
               <div className="bus">
                 <div className="bus-info">
                   <div className="busname">南大沢駅行</div>
-                  <BusTimetableDisplay schedule={schoolBusTimetable?.["南大沢駅行"]} currentTime={currentTime} dayType={dayType} />
+                  <BusTimetableDisplay schedule={schoolBusTimetable?.["南大沢駅行"]} currentTime={currentTime} dayType={dayType} upcomingCount={maxItems} />
                 </div>
               </div>
               <div className="bus">
                 <div className="bus-info">
                   <div className="busname">拝島駅行</div>
-                  <BusTimetableDisplay schedule={schoolBusTimetable?.["拝島行"]} currentTime={currentTime} dayType={dayType} />
+                  <BusTimetableDisplay schedule={schoolBusTimetable?.["拝島行"]} currentTime={currentTime} dayType={dayType} upcomingCount={maxItems} />
                 </div>
               </div>
             </div>
