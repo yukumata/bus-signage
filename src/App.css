@@ -15,6 +15,10 @@
   color: white;
   background: #40ba8d;
   overflow: hidden;
+  position: relative;
+  background-image: url("");
+  background-position: center;
+  background-size: cover;
 }
 
 .section1{

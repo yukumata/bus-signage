@@ -29,8 +29,8 @@
     flex: 0 0 auto;
     position: relative;
 }
-.label1 { background: #4788ff; }
-.label2 { background: #ff6347; }
+.label1 { background: #ff6347; }
+.label2 { background: #4788ff; }
 
 .update-date {
     position: absolute;
@@ -78,7 +78,8 @@
     display: flex;
     flex-direction: column;
     padding: 0.75rem 1rem;
-    border-top: 2px solid #555;
+    border-left: 0.1rem solid #555;
+    border-right: 0.1rem solid #555;
     min-height: 0;
 }
 
