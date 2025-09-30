@@ -11,6 +11,17 @@
   color: black;
 }
 
+.overlay-display.hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay-display.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
 .overlay  {
     display: flex;
     background-color: white;

@@ -12,13 +12,6 @@ function App() {
 
   KeyboardShortcuts([
     {
-      keys: ["Control", "i"],
-      handler: () => {
-        alert("infomation")
-      },
-      disableDefault: true
-    },
-    {
       keys: ["Control", "S"],
       handler: () => {
         if (showOverlay) {
