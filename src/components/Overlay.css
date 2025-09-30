@@ -12,12 +12,24 @@
 }
 
 .overlay  {
-    opacity: 1;
+    display: flex;
+    background-color: white;
+    position: relative;
+    border-radius: 1rem;
+}
+
+.close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+.close img {
+    width: 3rem;
+    height: 3rem;
 }
 
 .content {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    background-color: white;
 }

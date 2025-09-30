@@ -8,10 +8,12 @@ const Overlay = ({ showOverlay, setShowOverlay }: {showOverlay: boolean, setShow
         return (
             <div className="overlay-display">
                 <div className="overlay">
-                    <img src="./close.svg" alt="close" onClick={closeOverlay}/>
+                    <div className="close">
+                        <img src="./close.svg" alt="close" onClick={closeOverlay}/>
+                    </div>
                     <div className="content">
                         <h1>こんにちは世界</h1>
-                        <h1>さようなら現世</h1>
+                        <h1>( ˘ω˘)ｽﾔｧ</h1>
                     </div>
                 </div>
             </div>
