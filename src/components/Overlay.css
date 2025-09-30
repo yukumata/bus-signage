@@ -1,0 +1,23 @@
+.overlay-display {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.overlay  {
+    opacity: 1;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: white;
+}

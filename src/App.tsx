@@ -3,9 +3,12 @@ import './App.css'
 import Clock from './components/Clock'
 import Timetable from './components/Timetable'
 import { KeyboardShortcuts } from './hooks/KeyboardShortcuts';
+import Overlay from './components/Overlay';
 
 function App() {
   const [maxItems, setMaxItems] = useState(3);
+  const [showOverlay, setShowOverlay] = useState(false);
+
 
   KeyboardShortcuts([
     {
@@ -18,7 +21,11 @@ function App() {
     {
       keys: ["Control", "S"],
       handler: () => {
-        alert("Settings")
+        if (showOverlay) {
+          setShowOverlay(false);
+        } else {
+          setShowOverlay(true);
+        }
       },
       disableDefault: true
     },
@@ -47,6 +54,7 @@ function App() {
         <div className="section1">
           <Timetable maxItems={maxItems} />
         </div>
+        <Overlay showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
       </div>
     </>
   )
