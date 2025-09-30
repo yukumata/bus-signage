@@ -6,7 +6,7 @@ import { KeyboardShortcuts } from './hooks/KeyboardShortcuts';
 import Overlay from './components/Overlay';
 
 function App() {
-  const [maxItems, setMaxItems] = useState(3);
+  const [maxItems, setMaxItems] = useState(4);
   const [showOverlay, setShowOverlay] = useState(false);
 
 
