@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Timetable update="2025-04-07">
+<Timetable update="2025-10-02" type="臨時">
     <Stop>
         <Route name="JR八王子駅南口行">
             <Weekday>
