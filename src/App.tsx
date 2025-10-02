@@ -31,6 +31,14 @@ function App() {
     }
   }, [backgroundImage, backgroundImagePosition])
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      window.location.reload();
+    }, 5 * 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   KeyboardShortcuts([
     {
       keys: ['Control', 'S'],
