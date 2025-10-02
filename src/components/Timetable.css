@@ -32,15 +32,6 @@
 .label1 { background: #ff6347; }
 .label2 { background: #4788ff; }
 
-.update-date {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    font-size: 0.75rem;
-    padding-right: 0.5rem;
-    opacity: 0.8;
-}
-
 .timetable1 {
     flex: 1 1 auto;
     height: 100%;

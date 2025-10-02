@@ -56,7 +56,6 @@ function Timetable({ maxItems }: { maxItems: number }) {
   const [schoolBusTimetable, setSchoolBusTimetable] = useState<SchoolBusTimetable | null>(null);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [publicBusUpdate, setPublicBusUpdate] = useState<string | null>(null);
-  const [schoolBusUpdate, setSchoolBusUpdate] = useState<string | null>(null);
   const [schoolBusType, setSchoolBusType] = useState<string | null>(null);
 
 
@@ -157,7 +156,6 @@ function Timetable({ maxItems }: { maxItems: number }) {
           const schoolBusXml = parser.parseFromString(schoolBusText, "application/xml");
           const schoolBusTag = schoolBusXml.getElementsByTagName("Timetable")[0];
           if (schoolBusTag) {
-            setSchoolBusUpdate(schoolBusTag.getAttribute("update"));
             setSchoolBusType(schoolBusTag.getAttribute("type"));
           }
           setSchoolBusTimetable(parseSchoolBusXml(schoolBusXml));
@@ -213,7 +211,6 @@ function Timetable({ maxItems }: { maxItems: number }) {
             {schoolBusType === "臨時" && (
               <div className="if-temporary">臨時</div>
             )}
-            <div className="update-date">{schoolBusUpdate && <div>更新: {schoolBusUpdate}</div>}</div>
           </div>
           {isLoading ? <div className="loading">読込中...</div> : <>
             <div className="timetable2">
