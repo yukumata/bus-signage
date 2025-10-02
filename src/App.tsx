@@ -11,7 +11,7 @@ function App() {
   const [showOverlay, setShowOverlay] = useState(false)
 
   const params = Params()
-  const backgroundImage = params.get('background')
+  const backgroundImage = params.get('background-image')
 
   useEffect(() => {
     const section0 = document.querySelector(".section0") as HTMLElement;
