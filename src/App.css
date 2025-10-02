@@ -22,7 +22,7 @@
   overflow: hidden;
   position: relative;
   background-image: var(--section0-bg, none);
-  background-position: center;
+  background-position: var(--section0-bg-position, center);
   background-size: cover;
 }
 

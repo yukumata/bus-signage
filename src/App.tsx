@@ -12,6 +12,7 @@ function App() {
 
   const params = Params()
   const backgroundImage = params.get('background-image')
+  const backgroundImagePosition = params.get('background-image-position')
 
   useEffect(() => {
     const section0 = document.querySelector(".section0") as HTMLElement;
@@ -20,8 +21,12 @@ function App() {
         "--section0-bg",
         backgroundImage ? `url(${backgroundImage})` : "none"
       );
+      section0.style.setProperty(
+        "--section0-bg-position",
+        backgroundImagePosition ? backgroundImagePosition : "center"
+      );
     }
-  }, [backgroundImage]);
+  }, [backgroundImage, backgroundImagePosition]);
 
   KeyboardShortcuts([
     {
