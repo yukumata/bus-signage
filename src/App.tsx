@@ -7,12 +7,14 @@ import Overlay from './components/Overlay'
 import { Params } from './hooks/Params'
 
 function App() {
-  const [maxItems, setMaxItems] = useState(4)
-  const [showOverlay, setShowOverlay] = useState(false)
-
   const params = Params()
   const backgroundImage = params.get('background-image')
   const backgroundImagePosition = params.get('background-image-position')
+  const initialMaxItems = params.get('max-items') ? parseInt(params.get('max-items')!, 10) : 4
+
+  const [maxItems, setMaxItems] = useState(initialMaxItems)
+  const [showOverlay, setShowOverlay] = useState(false)
+
 
   useEffect(() => {
     const section0 = document.querySelector(".section0") as HTMLElement;
