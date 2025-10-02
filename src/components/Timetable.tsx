@@ -129,7 +129,7 @@ function Timetable({ maxItems }: { maxItems: number }) {
     const loadTimetables = async () => {
         try {
           const parser = new DOMParser();
-          const publicBusRes = await fetch('/Timetable/PublicBus.xml');
+          const publicBusRes = await fetch('./Timetable/PublicBus.xml');
           const publicBusText = await publicBusRes.text();
           const publicBusXml = parser.parseFromString(publicBusText, "application/xml");
           const publicBusTag = publicBusXml.getElementsByTagName("Timetable")[0];
@@ -141,8 +141,8 @@ function Timetable({ maxItems }: { maxItems: number }) {
           const mm = String(today.getMonth() + 1).padStart(2, '0');
           const dd = String(today.getDate()).padStart(2, '0');
           const todayStr = `${yyyy}-${mm}-${dd}`;
-          const dailyFile = `/Timetable/SchoolBus_${todayStr}.xml`;
-          const regularFile = `Timetable/SchoolBus_Regular.xml`;
+          const dailyFile = `./Timetable/SchoolBus_${todayStr}.xml`;
+          const regularFile = `./Timetable/SchoolBus_Regular.xml`;
           let schoolBusText: string;
           try {
             const schoolBusRes = await fetch(dailyFile);
