@@ -130,7 +130,7 @@
     color: #f1c40f;
 }
 
-.departure-note {
+.departure-note, .if-temporary {
     font-size: 1.1rem;
     font-weight: 500;
     background-color: #e74c3c;
@@ -138,6 +138,18 @@
     padding: 0.1rem 0.5rem;
     border-radius: 5px;
 }
+.if-temporary {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.1rem 0.5rem;
+  border-radius: 5px;
+}
+
 
 .departure-item.highlight {
   background-color: rgba(241, 196, 15, 0.15);

@@ -57,6 +57,7 @@ function Timetable({ maxItems }: { maxItems: number }) {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [publicBusUpdate, setPublicBusUpdate] = useState<string | null>(null);
   const [schoolBusUpdate, setSchoolBusUpdate] = useState<string | null>(null);
+  const [schoolBusType, setSchoolBusType] = useState<string | null>(null);
 
 
   const getDayType = (date: Date): 'Weekday' | 'Saturday' | 'Holiday' => {
@@ -128,17 +129,37 @@ function Timetable({ maxItems }: { maxItems: number }) {
     const loadTimetables = async () => {
         try {
           const parser = new DOMParser();
-          const publicBusRes = await fetch('./PublicBus.xml');
+          const publicBusRes = await fetch('/Timetable/PublicBus.xml');
           const publicBusText = await publicBusRes.text();
           const publicBusXml = parser.parseFromString(publicBusText, "application/xml");
           const publicBusTag = publicBusXml.getElementsByTagName("Timetable")[0];
           if (publicBusTag) setPublicBusUpdate(publicBusTag.getAttribute("update"));
           setPublicBusTimetable(parsePublicBusXml(publicBusXml));
-          const schoolBusRes = await fetch('./SchoolBus_Regular.xml');
-          const schoolBusText = await schoolBusRes.text();
+
+          const today = new Date();
+          const yyyy = today.getFullYear();
+          const mm = String(today.getMonth() + 1).padStart(2, '0');
+          const dd = String(today.getDate()).padStart(2, '0');
+          const todayStr = `${yyyy}-${mm}-${dd}`;
+          const dailyFile = `/Timetable/SchoolBus_${todayStr}.xml`;
+          const regularFile = `Timetable/SchoolBus_Regular.xml`;
+          let schoolBusText: string;
+          try {
+            const schoolBusRes = await fetch(dailyFile);
+            if (!schoolBusRes.ok) {
+              throw new Error("Daily file not found");
+            }
+            schoolBusText = await schoolBusRes.text();
+          } catch {
+            const schoolBusRes = await fetch(regularFile);
+            schoolBusText = await schoolBusRes.text();
+          }
           const schoolBusXml = parser.parseFromString(schoolBusText, "application/xml");
           const schoolBusTag = schoolBusXml.getElementsByTagName("Timetable")[0];
-          if (schoolBusTag) setSchoolBusUpdate(schoolBusTag.getAttribute("update"));
+          if (schoolBusTag) {
+            setSchoolBusUpdate(schoolBusTag.getAttribute("update"));
+            setSchoolBusType(schoolBusTag.getAttribute("type"));
+          }
           setSchoolBusTimetable(parseSchoolBusXml(schoolBusXml));
         } catch (error) {
             console.error("Error loading or parsing timetable XML:", error);
@@ -189,6 +210,9 @@ function Timetable({ maxItems }: { maxItems: number }) {
         <div className="table2">
           <div className="label2">
             スクールバス
+            {schoolBusType === "臨時" && (
+              <div className="if-temporary">臨時</div>
+            )}
             <div className="update-date">{schoolBusUpdate && <div>更新: {schoolBusUpdate}</div>}</div>
           </div>
           {isLoading ? <div className="loading">読込中...</div> : <>
