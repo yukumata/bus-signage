@@ -55,7 +55,6 @@ function Timetable({ maxItems }: { maxItems: number }) {
   const [publicBusTimetable, setPublicBusTimetable] = useState<PublicBusTimetable | null>(null);
   const [schoolBusTimetable, setSchoolBusTimetable] = useState<SchoolBusTimetable | null>(null);
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [publicBusUpdate, setPublicBusUpdate] = useState<string | null>(null);
   const [schoolBusType, setSchoolBusType] = useState<string | null>(null);
 
 
@@ -131,8 +130,6 @@ function Timetable({ maxItems }: { maxItems: number }) {
           const publicBusRes = await fetch('./Timetable/PublicBus.xml');
           const publicBusText = await publicBusRes.text();
           const publicBusXml = parser.parseFromString(publicBusText, "application/xml");
-          const publicBusTag = publicBusXml.getElementsByTagName("Timetable")[0];
-          if (publicBusTag) setPublicBusUpdate(publicBusTag.getAttribute("update"));
           setPublicBusTimetable(parsePublicBusXml(publicBusXml));
 
           const today = new Date();
@@ -174,7 +171,6 @@ function Timetable({ maxItems }: { maxItems: number }) {
         <div className="table1">
           <div className="label1">
             公共バス(西東京バス)
-            <div className="update-date">{publicBusUpdate && <div>更新: {publicBusUpdate}</div>}</div>
           </div>
           {isLoading ? <div className="loading">読込中...</div> : <>
             <div className="timetable1">
