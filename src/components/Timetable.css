@@ -1,51 +1,57 @@
 .timetable-field {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    width: 100%;
-    height: 100%;
-    font-family: "M PLUS 1p", monospace;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  width: 100%;
+  height: 100%;
+  font-family: 'M PLUS 1p', monospace;
 }
 
-.table1, .table2 {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 0;
+.table1,
+.table2 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
 }
 
-.label1, .label2 {
-    font-family: "M PLUS Rounded 1c", monospace;
-    font-weight: 500;
-    color: white;
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    font-size: 2rem;
-    padding: 0.5rem 0;
-    flex: 0 0 auto;
-    position: relative;
+.label1,
+.label2 {
+  font-family: 'M PLUS Rounded 1c', monospace;
+  font-weight: 500;
+  color: white;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 2rem;
+  padding: 0.5rem 0;
+  flex: 0 0 auto;
+  position: relative;
 }
-.label1 { background: #ff6347; }
-.label2 { background: #4788ff; }
+.label1 {
+  background: #ff6347;
+}
+.label2 {
+  background: #4788ff;
+}
 
 .timetable1 {
-    flex: 1 1 auto;
-    height: 100%;
-    min-height: 0;
-    display: grid;
-    grid-auto-rows: 1fr;
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-auto-rows: 1fr;
 }
 
 .timetable2 {
-    flex: 1 1 auto;
-    height: 100%;
-    min-height: 0;
-    display: grid;
-    grid-auto-rows: 1fr;
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-auto-rows: 1fr;
 }
 
 .timetable1 .departures {
@@ -58,39 +64,39 @@
 }
 
 .loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.5rem;
 }
 
 .bus {
-    display: flex;
-    flex-direction: column;
-    padding: 0.75rem 1rem;
-    border-left: 0.1rem solid #555;
-    border-right: 0.1rem solid #555;
-    min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1rem;
+  border-left: 0.1rem solid #555;
+  border-right: 0.1rem solid #555;
+  min-height: 0;
 }
 
 .bus-info {
-    width: 100%;
+  width: 100%;
 }
 
 .busname {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    border-bottom: 2px solid;
-    padding-bottom: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid;
+  padding-bottom: 0.25rem;
 }
 
 .destination {
-    font-size: 1rem;
-    font-weight: 400;
-    margin-left: 0.5rem;
-    opacity: 0.8;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 0.5rem;
+  opacity: 0.8;
 }
 
 .timetable1 .departures,
@@ -111,23 +117,24 @@
 }
 
 .departure-item {
-    height: 40px;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-.departure-time {
-    color: #f1c40f;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.departure-note, .if-temporary {
-    font-size: 1.1rem;
-    font-weight: 500;
-    background-color: #e74c3c;
-    color: white;
-    padding: 0.1rem 0.5rem;
-    border-radius: 5px;
+.departure-time {
+  color: #f1c40f;
+}
+
+.departure-note,
+.if-temporary {
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.1rem 0.5rem;
+  border-radius: 5px;
 }
 .if-temporary {
   position: absolute;
@@ -140,7 +147,6 @@
   padding: 0.1rem 0.5rem;
   border-radius: 5px;
 }
-
 
 .departure-item.highlight {
   background-color: rgba(241, 196, 15, 0.15);

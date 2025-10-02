@@ -20,12 +20,12 @@
   background: #40ba8d;
   overflow: hidden;
   position: relative;
-  background-image: url("");
+  background-image: var(--section0-bg, none);
   background-position: center;
   background-size: cover;
 }
 
-.section1{
+.section1 {
   display: grid;
   flex-direction: column;
   color: white;
