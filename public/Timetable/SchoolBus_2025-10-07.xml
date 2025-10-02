@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Timetable update="2025-10-02" type="臨時">
+    <Stop>
+        <Route name="JR八王子駅南口行">
+            <Weekday>
+                <Departure time="1325" note="２台同時発車"/>
+                <Departure time="1330" note=""/>
+                <Departure time="1445" note="２台同時発車"/>
+                <Departure time="1455" note=""/>
+                <Departure time="1458" note=""/>
+                <Departure time="1545" note="２台同時発車"/>
+                <Departure time="1550" note=""/>
+                <Departure time="1600" note="京王八王子経由"/>
+                <Departure time="1615" note=""/>
+                <Departure time="1635" note="京王八王子経由"/>
+                <Departure time="1650" note=""/>
+                <Departure time="1700" note="京王八王子経由"/>
+                <Departure time="1710" note=""/>
+                <Departure time="1717" note="京王八王子経由"/>
+                <Departure time="1740" note=""/>
+                <Departure time="1810" note="２台同時発車"/>
+                <Departure time="1815" note=""/>
+                <Departure time="1910" note=""/>
+                <Departure time="1915" note=""/>
+            </Weekday>
+            <Saturday>
+            </Saturday>
+        </Route>
+        <Route name="京王八王子行">
+            <Weekday>
+                <Departure time="1328" note=""/>
+                <Departure time="1450" note=""/>
+                <Departure time="1458" note=""/>
+                <Departure time="1553" note=""/>
+                <Departure time="1600" note=""/>
+                <Departure time="1615" note=""/>
+                <Departure time="1635" note=""/>
+                <Departure time="1650" note=""/>
+                <Departure time="1700" note=""/>
+                <Departure time="1717" note=""/>
+                <Departure time="1743" note=""/>
+                <Departure time="1815" note=""/>
+                <Departure time="1920" note=""/>
+            </Weekday>
+            <Saturday>
+            </Saturday>
+        </Route>
+        <Route name="南大沢駅行">
+            <Weekday>
+                <Departure time="1326" note="京王八王子経由"/>
+                <Departure time="1456" note="京王八王子・JR八王子南口経由"/>
+                <Departure time="1551" note="京王八王子経由"/>
+                <Departure time="1613" note="京王八王子経由"/>
+                <Departure time="1648" note="京王八王子経由"/>
+                <Departure time="1715" note="京王八王子・JR八王子南口経由"/>
+                <Departure time="1741" note="京王八王子経由"/>
+                <Departure time="1813" note="京王八王子経由"/>
+                <Departure time="1918" note="京王八王子経由"/>
+            </Weekday>
+            <Saturday>
+            </Saturday>
+        </Route>
+        <Route name="拝島行">
+            <Weekday>
+                <Departure time="1325" note=""/>
+                <Departure time="1330" note=""/>
+                <Departure time="1445" note=""/>
+                <Departure time="1455" note=""/>
+                <Departure time="1545" note="２台同時発車"/>
+                <Departure time="1600" note=""/>
+                <Departure time="1615" note=""/>
+                <Departure time="1635" note=""/>
+                <Departure time="1650" note=""/>
+                <Departure time="1700" note=""/>
+                <Departure time="1715" note=""/>
+                <Departure time="1740" note=""/>
+                <Departure time="1810" note="２台同時発車"/>
+                <Departure time="1815" note=""/>
+                <Departure time="1910" note=""/>
+                <Departure time="1915" note=""/>
+            </Weekday>
+            <Saturday>
+            </Saturday>
+        </Route>
+    </Stop>
+</Timetable>
