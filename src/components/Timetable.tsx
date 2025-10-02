@@ -173,7 +173,7 @@ function Timetable({ maxItems }: { maxItems: number }) {
     const loadTimetables = async () => {
       try {
         const parser = new DOMParser()
-        const publicBusRes = await fetch('./Timetable/PublicBus.xml')
+        const publicBusRes = await fetch('./Timetable/PublicBus.xml', { cache: 'no-store' })
         const publicBusText = await publicBusRes.text()
         const publicBusXml = parser.parseFromString(
           publicBusText,
@@ -190,7 +190,7 @@ function Timetable({ maxItems }: { maxItems: number }) {
         const regularFile = `./Timetable/SchoolBus_Regular.xml`
         let schoolBusText: string
         try {
-          const schoolBusRes = await fetch(dailyFile)
+          const schoolBusRes = await fetch(dailyFile, { cache: 'no-store' })
           if (!schoolBusRes.ok) {
             throw new Error('Daily file not found')
           }
@@ -198,7 +198,7 @@ function Timetable({ maxItems }: { maxItems: number }) {
           if (!schoolBusText.trimStart().startsWith('<?xml'))
             throw new Error('Invalid daily XML')
         } catch {
-          const schoolBusRes = await fetch(regularFile)
+          const schoolBusRes = await fetch(regularFile, { cache: 'no-store' })
           schoolBusText = await schoolBusRes.text()
         }
         const schoolBusXml = parser.parseFromString(

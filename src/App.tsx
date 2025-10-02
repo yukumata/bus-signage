@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       window.location.reload();
-    }, 5 * 1000);
+    }, 10 * 60 * 1000);
 
     return () => clearInterval(interval);
   }, []);
