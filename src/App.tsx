@@ -10,7 +10,7 @@ function App() {
   const params = Params()
   const backgroundImage = params.get('background-image')
   const backgroundImagePosition = params.get('background-image-position')
-  const initialMaxItems = params.get('max-items') ? parseInt(params.get('max-items')!, 10) : 4
+  const initialMaxItems = params.get('default-items') ? parseInt(params.get('default-items')!, 10) : 4
 
   const [maxItems, setMaxItems] = useState(initialMaxItems)
   const [showOverlay, setShowOverlay] = useState(false)
