@@ -195,6 +195,8 @@ function Timetable({ maxItems }: { maxItems: number }) {
             throw new Error('Daily file not found')
           }
           schoolBusText = await schoolBusRes.text()
+          if (!schoolBusText.trimStart().startsWith('<?xml'))
+            throw new Error('Invalid daily XML')
         } catch {
           const schoolBusRes = await fetch(regularFile)
           schoolBusText = await schoolBusRes.text()

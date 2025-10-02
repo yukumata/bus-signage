@@ -10,25 +10,26 @@ function App() {
   const params = Params()
   const backgroundImage = params.get('background-image')
   const backgroundImagePosition = params.get('background-image-position')
-  const initialMaxItems = params.get('default-items') ? parseInt(params.get('default-items')!, 10) : 4
+  const initialMaxItems = params.get('default-items')
+    ? parseInt(params.get('default-items')!, 10)
+    : 4
 
   const [maxItems, setMaxItems] = useState(initialMaxItems)
   const [showOverlay, setShowOverlay] = useState(false)
 
-
   useEffect(() => {
-    const section0 = document.querySelector(".section0") as HTMLElement;
+    const section0 = document.querySelector('.section0') as HTMLElement
     if (section0) {
       section0.style.setProperty(
-        "--section0-bg",
-        backgroundImage ? `url(${backgroundImage})` : "none"
-      );
+        '--section0-bg',
+        backgroundImage ? `url(${backgroundImage})` : 'none'
+      )
       section0.style.setProperty(
-        "--section0-bg-position",
-        backgroundImagePosition ? backgroundImagePosition : "center"
-      );
+        '--section0-bg-position',
+        backgroundImagePosition ? backgroundImagePosition : 'center'
+      )
     }
-  }, [backgroundImage, backgroundImagePosition]);
+  }, [backgroundImage, backgroundImagePosition])
 
   KeyboardShortcuts([
     {
