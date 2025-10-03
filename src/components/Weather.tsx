@@ -1,31 +1,53 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import {
+  Cloud,
+  Umbrella,
+  Sun,
+  CloudSun,
+  CloudDrizzle,
+  CloudSnow,
+  CloudFog,
+} from 'lucide-react'
 import './Weather.css'
 
-interface WeatherData {
+type WeatherData = {
   dt: number
   main: {
     humidity: number
     temp: number
   }
-  weather: { description: string; icon: string }[]
-  rain?: {
-    '3h': number
-  }
-}
-interface ForecastItem {
-  dt: number
-  main: {
-    humidity: number
-    temp: number
-  }
-  weather: { description: string; icon: string }[]
+  weather: { description: string; icon: string; main?: string }[]
   rain?: {
     '3h': number
   }
 }
 
-function Weather({ zipCode }: { zipCode: number }) {
+function getWeatherIcon(main?: string) {
+  if (!main) return <Cloud className="icon gray" />
+  switch (main.toLowerCase()) {
+    case 'clear':
+      return <Sun className="icon yellow" />
+    case 'clouds':
+      return <Cloud className="icon gray" />
+    case 'rain':
+      return <Umbrella className="icon blue" />
+    case 'drizzle':
+      return <CloudDrizzle className="icon lightblue" />
+    case 'snow':
+      return <CloudSnow className="icon sky" />
+    case 'fog':
+      return <CloudFog className="icon gray" />
+    case 'mist':
+      return <CloudFog className="icon gray" />
+    case 'haze':
+      return <CloudFog className="icon gray" />
+    default:
+      return <CloudSun className="icon orange" />
+  }
+}
+
+export default function Weather({ zipCode }: { zipCode: number }) {
   const [forecast, setForecast] = useState<WeatherData[]>([])
 
   useEffect(() => {
@@ -42,6 +64,11 @@ function Weather({ zipCode }: { zipCode: number }) {
         const { x: lon, y: lat } = locations[0]
 
         const apiKey = '73ba8c476b36e28faf5a2bc05747bc07'
+        if (!apiKey) {
+          console.error('APIキーが設定されていません。')
+          return
+        }
+
         const forecastRes = await axios.get(
           `https://api.openweathermap.org/data/2.5/forecast`,
           {
@@ -49,42 +76,51 @@ function Weather({ zipCode }: { zipCode: number }) {
               lat,
               lon,
               units: 'metric',
+              lang: 'ja',
               appid: apiKey,
             },
           }
         )
-        const today = new Date().toISOString().split('T')[0]
-        const todayData: WeatherData[] = (
-          forecastRes.data.list as ForecastItem[]
-        ).filter((item) =>
-          new Date(item.dt * 1000).toISOString().startsWith(today)
-        )
-        setForecast(todayData)
-        console.log(todayData)
+
+        const now = Date.now()
+        const futureData: WeatherData[] = forecastRes.data.list
+          .filter((item: WeatherData) => item.dt * 1000 > now)
+          .slice(0, 5)
+        setForecast(futureData)
       } catch (error) {
         console.error('API取得エラー:', error)
       }
     }
     fetchCoordinates()
   }, [zipCode])
+
   return (
-    <div className="frame">
-      <h1>調整中</h1>
-      <ul>
-        {forecast.map((item) => (
-          <li key={item.dt}>
-            {new Date(item.dt * 1000).toLocaleTimeString([], {
-              hour: '2-digit',
-              minute: '2-digit',
-            })}{' '}
-            - {item.main.temp}°C - {item.weather[0].description} - 湿度{' '}
-            {item.main.humidity}%{' '}
-            {item.rain?.['3h'] ? `- 雨量 ${item.rain['3h']}mm` : ''}
-          </li>
-        ))}
-      </ul>
+    <div className="weather-container">
+      <div className="forecast-frame">
+        {forecast.length === 0 ? (
+          <div className="no-data">予報データがありません。</div>
+        ) : (
+          <div className="forecast-list">
+            {forecast.map((item) => (
+              <div className="forecast-card" key={item.dt}>
+                <div className="time">
+                  {new Date(item.dt * 1000).toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </div>
+                {getWeatherIcon(item.weather[0]?.main)}
+                <div className="desc">{item.weather[0]?.description}</div>
+                <div className="temp">{Math.round(item.main.temp)}°C</div>
+                <div className="humidity">湿度 {item.main.humidity}%</div>
+                {/* {item.rain?.['3h'] && (
+                  <div className="rain">雨量 {item.rain['3h']}mm</div>
+                )} */}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   )
 }
-
-export default Weather

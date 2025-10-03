@@ -1,4 +1,87 @@
-.frame {
+.weather-container {
   display: flex;
-  font-size: 1rem;
+  padding: 1rem;
+}
+
+.forecast-frame {
+  background: #fff;
+  border-radius: 1.2rem;
+  padding: 0.8rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  background: rgba(31, 20, 11, 0.5);
+}
+
+.no-data {
+  color: #666;
+  text-align: center;
+  padding: 1rem;
+}
+
+.forecast-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.forecast-card {
+  flex-shrink: 1;
+  width: 5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.forecast-card .time {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.forecast-card .desc {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.forecast-card .temp {
+  font-size: 0.85rem;
+  color: #ababab;
+  margin-top: 0.25rem;
+}
+
+.forecast-card .humidity,
+.forecast-card .rain {
+  font-size: 0.75rem;
+  color: #bbb;
+}
+
+.icon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.icon.gray {
+  color: #888;
+}
+
+.icon.yellow {
+  color: #facc15; /* tailwind yellow-400 相当 */
+}
+
+.icon.blue {
+  color: #3b82f6; /* tailwind blue-500 */
+}
+
+.icon.lightblue {
+  color: #60a5fa; /* tailwind blue-400 */
+}
+
+.icon.sky {
+  color: #38bdf8; /* tailwind sky-400 */
+}
+
+.icon.orange {
+  color: #f97316; /* tailwind orange-500 */
 }

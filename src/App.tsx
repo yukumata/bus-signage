@@ -80,8 +80,12 @@ function App() {
       ></link>
       <div className="screen">
         <div className="section0">
-          <Clock />
-          <Weather zipCode={zipCode} />
+          <div className="clock">
+            <Clock />
+          </div>
+          <div className="weather">
+            <Weather zipCode={zipCode} />
+          </div>
         </div>
         <div className="section1">
           <Timetable maxItems={maxItems} />

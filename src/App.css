@@ -13,8 +13,8 @@
 
 .section0 {
   display: grid;
-  place-items: center;
-  font-size: 6rem;
+  grid-auto-flow: row;
+  grid-auto-rows: 1fr auto;
   font-weight: bold;
   color: white;
   background: #40ba8d;
@@ -23,6 +23,15 @@
   background-image: var(--section0-bg, none);
   background-position: var(--section0-bg-position, center);
   background-size: cover;
+}
+
+.clock {
+  margin-top: 4rem;
+}
+
+.weather {
+  justify-self: center;
+  margin-bottom: 0.5rem;
 }
 
 .section1 {
