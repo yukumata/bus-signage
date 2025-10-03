@@ -5,6 +5,7 @@ import Timetable from './components/Timetable'
 import { KeyboardShortcuts } from './hooks/KeyboardShortcuts'
 import Overlay from './components/Overlay'
 import { Params } from './hooks/Params'
+import Weather from './components/Weather'
 
 function App() {
   const params = Params()
@@ -13,6 +14,9 @@ function App() {
   const initialMaxItems = params.get('default-items')
     ? parseInt(params.get('default-items')!, 10)
     : 4
+  const zipCode = params.get('zipcode')
+    ? parseInt(params.get('zipcode')!, 7)
+    : 1920015
 
   const [maxItems, setMaxItems] = useState(initialMaxItems)
   const [showOverlay, setShowOverlay] = useState(false)
@@ -32,12 +36,15 @@ function App() {
   }, [backgroundImage, backgroundImagePosition])
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      window.location.reload();
-    }, 10 * 60 * 1000);
+    const interval = setInterval(
+      () => {
+        window.location.reload()
+      },
+      10 * 60 * 1000
+    )
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [])
 
   KeyboardShortcuts([
     {
@@ -74,7 +81,7 @@ function App() {
       <div className="screen">
         <div className="section0">
           <Clock />
-          <img src=".\logo_white-min.png" alt="logo" width="500" />
+          <Weather zipCode={zipCode} />
         </div>
         <div className="section1">
           <Timetable maxItems={maxItems} />

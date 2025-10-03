@@ -173,7 +173,9 @@ function Timetable({ maxItems }: { maxItems: number }) {
     const loadTimetables = async () => {
       try {
         const parser = new DOMParser()
-        const publicBusRes = await fetch('./Timetable/PublicBus.xml', { cache: 'no-store' })
+        const publicBusRes = await fetch('./Timetable/PublicBus.xml', {
+          cache: 'no-store',
+        })
         const publicBusText = await publicBusRes.text()
         const publicBusXml = parser.parseFromString(
           publicBusText,
