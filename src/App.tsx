@@ -15,7 +15,7 @@ function App() {
     ? parseInt(params.get('default-items')!, 10)
     : 4
   const zipCode = params.get('zipcode')
-    ? parseInt(params.get('zipcode')!, 7)
+    ? parseInt(params.get('zipcode')!)
     : 1920015
 
   const [maxItems, setMaxItems] = useState(initialMaxItems)
