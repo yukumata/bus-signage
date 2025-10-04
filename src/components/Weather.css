@@ -75,21 +75,33 @@
 }
 
 .icon.yellow {
-  color: #facc15; /* tailwind yellow-400 相当 */
+  color: #facc15;
 }
 
 .icon.blue {
-  color: #3b82f6; /* tailwind blue-500 */
+  color: #3b82f6;
 }
 
 .icon.lightblue {
-  color: #60a5fa; /* tailwind blue-400 */
+  color: #60a5fa;
 }
 
-.icon.sky {
-  color: #38bdf8; /* tailwind sky-400 */
+.icon.skyblue {
+  color: #38bdf8;
 }
 
 .icon.orange {
-  color: #f97316; /* tailwind orange-500 */
+  color: #f97316;
+}
+
+.icon.red {
+  color: #ef4444;
+}
+
+.icon.purple {
+  color: #800080;
+}
+
+.icon.lightpurple {
+  color: #a865c9;
 }

@@ -27,7 +27,7 @@ type WeatherData = {
   };
 };
 
-function getWeatherIcon(id?: number, iconCode?: string) {
+function getWeatherIcon(id?: number, iconCode?: string, rainAmount: number = 0) {
   if (!id) return <Cloud className="icon gray" />;
 
   if (id === 800) {
@@ -44,13 +44,19 @@ function getWeatherIcon(id?: number, iconCode?: string) {
 
   switch (Math.floor(id / 100)) {
     case 2:
+      if (rainAmount >= 50) return <CloudLightning className="icon red" />;
+      if (rainAmount >= 20) return <CloudLightning className="icon purple" />;
+      if (rainAmount >= 10) return <CloudLightning className="icon lightpurple" />;
       return <CloudLightning className="icon yellow" />;
     case 3:
       return <CloudDrizzle className="icon lightblue" />;
     case 5:
+      if (rainAmount >= 50) return <Umbrella className="icon red" />;
+      if (rainAmount >= 20) return <Umbrella className="icon purple" />;
+      if (rainAmount >= 10) return <Umbrella className="icon lightpurple" />;
       return <Umbrella className="icon blue" />;
     case 6:
-      if (id >= 611 && id <= 616) return <CloudSnow className="icon sky" />;
+      if (id >= 611 && id <= 616) return <CloudSnow className="icon skyblue" />;
       return <Snowflake className="icon white" />;
     case 7:
       return <CloudFog className="icon gray" />;
@@ -59,7 +65,7 @@ function getWeatherIcon(id?: number, iconCode?: string) {
   }
 }
 
-function getWeatherName(id?: number): string {
+function getWeatherName(id?: number, rainAmount: number = 0): string {
   if (!id) return "不明";
 
   if (id === 800) return "晴れ";
@@ -67,10 +73,20 @@ function getWeatherName(id?: number): string {
 
   switch (Math.floor(id / 100)) {
     case 2:
+      if (rainAmount >= 80) return "猛烈な雷雨";
+      if (rainAmount >= 50) return "非常に激しい雷雨";
+      if (rainAmount >= 30) return "激しい雷雨";
+      if (rainAmount >= 20) return "強い雷雨";
+      if (rainAmount >= 10) return "やや強い雷雨";
       return "雷雨";
     case 3:
       return "霧雨";
     case 5:
+      if (rainAmount >= 80) return "猛烈な雨";
+      if (rainAmount >= 50) return "非常に激しい雨";
+      if (rainAmount >= 30) return "激しい雨";
+      if (rainAmount >= 20) return "強い雨";
+      if (rainAmount >= 10) return "やや強い雨";
       return "雨";
     case 6:
       if (id >= 611 && id <= 616) return "みぞれ";
@@ -150,8 +166,8 @@ export default function Weather({ zipCode }: { zipCode: number }) {
                     minute: "2-digit",
                   })}
                 </div>
-                {getWeatherIcon(item.weather[0]?.id, item.weather[0]?.icon)}
-                <div className="desc">{getWeatherName(item.weather[0]?.id)}</div>
+                {getWeatherIcon(item.weather[0]?.id, item.weather[0]?.icon, item.rain?.['3h'] ?? 0)}
+                <div className="desc">{getWeatherName(item.weather[0]?.id, item.rain?.['3h'] ?? 0)}</div>
                 <div className="temp">{Math.round(item.main.temp)}°C</div>
                 <div className="humidity">湿度 {item.main.humidity}%</div>
                 {/* {item.rain?.['3h'] && (
