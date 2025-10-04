@@ -119,10 +119,14 @@ export default function Weather({ zipCode }: { zipCode: number }) {
         );
 
         const now = Date.now();
-        const futureData: WeatherData[] = forecastRes.data.list
+        const list: WeatherData[] = forecastRes.data.list;
+        const pastOne = [...list]
+          .reverse().find((item) => item.dt * 1000 <= now);
+        const futureData = [...list]
           .filter((item: WeatherData) => item.dt * 1000 > now)
-          .slice(0, 5);
-        setForecast(futureData);
+          .slice(0, 6);
+        const combinedData = pastOne ? [pastOne, ...futureData] : futureData;
+        setForecast(combinedData);
       } catch (error) {
         console.error("API取得エラー:", error);
       }
@@ -133,6 +137,7 @@ export default function Weather({ zipCode }: { zipCode: number }) {
   return (
     <div className="weather-container">
       <div className="forecast-frame">
+        <div className="title">現在の天気予報</div>
         {forecast.length === 0 ? (
           <div className="no-data">予報データがありません。</div>
         ) : (
