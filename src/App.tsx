@@ -1,59 +1,59 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import Clock from './components/Clock'
-import Timetable from './components/Timetable'
-import { KeyboardShortcuts } from './hooks/KeyboardShortcuts'
-import Overlay from './components/Overlay'
-import { Params } from './hooks/Params'
-import Weather from './components/Weather'
+import { useState, useEffect } from "react";
+import "./App.css";
+import Clock from "./components/Clock";
+import Timetable from "./components/Timetable";
+import { KeyboardShortcuts } from "./hooks/KeyboardShortcuts";
+import Overlay from "./components/Overlay";
+import { Params } from "./hooks/Params";
+import Weather from "./components/Weather";
 
 function App() {
-  const params = Params()
-  const backgroundImage = params.get('background-image')
-  const backgroundImagePosition = params.get('background-image-position')
-  const initialMaxItems = params.get('default-items')
-    ? parseInt(params.get('default-items')!, 10)
-    : 4
-  const zipCode = params.get('zipcode')
-    ? parseInt(params.get('zipcode')!)
-    : 1920015
+  const params = Params();
+  const backgroundImage = params.get("background-image");
+  const backgroundImagePosition = params.get("background-image-position");
+  const initialMaxItems = params.get("default-items")
+    ? parseInt(params.get("default-items")!, 10)
+    : 4;
+  const zipCode = params.get("zipcode")
+    ? parseInt(params.get("zipcode")!)
+    : 1920015;
 
-  const [maxItems, setMaxItems] = useState(initialMaxItems)
-  const [showOverlay, setShowOverlay] = useState(false)
+  const [maxItems, setMaxItems] = useState(initialMaxItems);
+  const [showOverlay, setShowOverlay] = useState(false);
 
   useEffect(() => {
-    const section0 = document.querySelector('.section0') as HTMLElement
+    const section0 = document.querySelector(".section0") as HTMLElement;
     if (section0) {
       section0.style.setProperty(
-        '--section0-bg',
-        backgroundImage ? `url(${backgroundImage})` : 'none'
-      )
+        "--section0-bg",
+        backgroundImage ? `url(${backgroundImage})` : "none",
+      );
       section0.style.setProperty(
-        '--section0-bg-position',
-        backgroundImagePosition ? backgroundImagePosition : 'center'
-      )
+        "--section0-bg-position",
+        backgroundImagePosition ? backgroundImagePosition : "center",
+      );
     }
-  }, [backgroundImage, backgroundImagePosition])
+  }, [backgroundImage, backgroundImagePosition]);
 
   useEffect(() => {
     const interval = setInterval(
       () => {
-        window.location.reload()
+        window.location.reload();
       },
-      10 * 60 * 1000
-    )
+      10 * 60 * 1000,
+    );
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   KeyboardShortcuts([
     {
-      keys: ['Control', 'S'],
+      keys: ["Control", "S"],
       handler: () => {
         if (showOverlay) {
-          setShowOverlay(false)
+          setShowOverlay(false);
         } else {
-          setShowOverlay(true)
+          setShowOverlay(true);
         }
       },
       disableDefault: true,
@@ -62,14 +62,14 @@ function App() {
       keys: [i.toString()],
       handler: () => {
         if (i === 0) {
-          setMaxItems(999)
+          setMaxItems(999);
         } else {
-          setMaxItems(i)
+          setMaxItems(i);
         }
       },
       disableDefault: true,
     })),
-  ])
+  ]);
 
   return (
     <>
@@ -93,7 +93,7 @@ function App() {
         <Overlay showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

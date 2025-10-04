@@ -1,17 +1,17 @@
-import './Overlay.css'
+import "./Overlay.css";
 
 const Overlay = ({
   showOverlay,
   setShowOverlay,
 }: {
-  showOverlay: boolean
-  setShowOverlay: (value: boolean) => void
+  showOverlay: boolean;
+  setShowOverlay: (value: boolean) => void;
 }) => {
   const closeOverlay = () => {
-    setShowOverlay(false)
-  }
+    setShowOverlay(false);
+  };
   return (
-    <div className={`overlay-display ${showOverlay ? 'visible' : 'hidden'}`}>
+    <div className={`overlay-display ${showOverlay ? "visible" : "hidden"}`}>
       <div className="overlay">
         <div className="close">
           <img src="./close.svg" alt="close" onClick={closeOverlay} />
@@ -27,7 +27,7 @@ const Overlay = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Overlay
+export default Overlay;

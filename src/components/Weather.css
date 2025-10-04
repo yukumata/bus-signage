@@ -62,6 +62,10 @@
   height: 3rem;
 }
 
+.icon.white {
+  color: #fff;
+}
+
 .icon.gray {
   color: #888;
 }
