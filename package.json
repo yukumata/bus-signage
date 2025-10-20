@@ -1,6 +1,7 @@
 {
   "name": "bus-signage",
   "private": true,
+  "homepage": "./",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,7 +11,8 @@
     "preview": "vite preview",
     "format": "prettier --write src",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy-gh": "gh-pages -d dist",
+    "deploy-cf": "npm run deploy && wrangler deploy"
   },
   "dependencies": {
     "@holiday-jp/holiday_jp": "^2.5.1",
@@ -23,6 +25,7 @@
     "react-router-dom": "^7.9.3"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.13.10",
     "@eslint/js": "^9.36.0",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
@@ -38,6 +41,7 @@
     "prettier": "^3.6.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.44.0",
-    "vite": "^7.1.7"
+    "vite": "^7.1.9",
+    "wrangler": "^4.42.0"
   }
 }

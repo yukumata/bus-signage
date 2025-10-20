@@ -27,7 +27,11 @@ type WeatherData = {
   };
 };
 
-function getWeatherIcon(id?: number, iconCode?: string, rainAmount: number = 0) {
+function getWeatherIcon(
+  id?: number,
+  iconCode?: string,
+  rainAmount: number = 0,
+) {
   if (!id) return <Cloud className="icon gray" />;
 
   if (id === 800) {
@@ -37,7 +41,7 @@ function getWeatherIcon(id?: number, iconCode?: string, rainAmount: number = 0) 
     return <Sun className="icon orange" />;
   } else if (id >= 801 && id <= 804) {
     if (iconCode?.endsWith("n")) {
-      return <CloudMoon className="icon yellow" />;
+      return <CloudMoon className="icon gray" />;
     }
     return <Cloud className="icon gray" />;
   }
@@ -46,7 +50,8 @@ function getWeatherIcon(id?: number, iconCode?: string, rainAmount: number = 0) 
     case 2:
       if (rainAmount >= 50) return <CloudLightning className="icon red" />;
       if (rainAmount >= 20) return <CloudLightning className="icon purple" />;
-      if (rainAmount >= 10) return <CloudLightning className="icon lightpurple" />;
+      if (rainAmount >= 10)
+        return <CloudLightning className="icon lightpurple" />;
       return <CloudLightning className="icon yellow" />;
     case 3:
       return <CloudDrizzle className="icon lightblue" />;
@@ -99,7 +104,13 @@ function getWeatherName(id?: number, rainAmount: number = 0): string {
   }
 }
 
-export default function Weather({ zipCode }: { zipCode: number }) {
+type Props = {
+  zipCode: number;
+  weatherItem: number;
+};
+
+
+export default function Weather({ zipCode, weatherItem }: Props) {
   const [forecast, setForecast] = useState<WeatherData[]>([]);
 
   useEffect(() => {
@@ -137,10 +148,11 @@ export default function Weather({ zipCode }: { zipCode: number }) {
         const now = Date.now();
         const list: WeatherData[] = forecastRes.data.list;
         const pastOne = [...list]
-          .reverse().find((item) => item.dt * 1000 <= now);
+          .reverse()
+          .find((item) => item.dt * 1000 <= now);
         const futureData = [...list]
           .filter((item: WeatherData) => item.dt * 1000 > now)
-          .slice(0, 6);
+          .slice(0, weatherItem);
         const combinedData = pastOne ? [pastOne, ...futureData] : futureData;
         setForecast(combinedData);
       } catch (error) {
@@ -148,7 +160,7 @@ export default function Weather({ zipCode }: { zipCode: number }) {
       }
     };
     fetchCoordinates();
-  }, [zipCode]);
+  }, [zipCode, weatherItem]);
 
   return (
     <div className="weather-container">
@@ -166,8 +178,14 @@ export default function Weather({ zipCode }: { zipCode: number }) {
                     minute: "2-digit",
                   })}
                 </div>
-                {getWeatherIcon(item.weather[0]?.id, item.weather[0]?.icon, item.rain?.['3h'] ?? 0)}
-                <div className="desc">{getWeatherName(item.weather[0]?.id, item.rain?.['3h'] ?? 0)}</div>
+                {getWeatherIcon(
+                  item.weather[0]?.id,
+                  item.weather[0]?.icon,
+                  item.rain?.["3h"] ?? 0,
+                )}
+                <div className="desc">
+                  {getWeatherName(item.weather[0]?.id, item.rain?.["3h"] ?? 0)}
+                </div>
                 <div className="temp">{Math.round(item.main.temp)}°C</div>
                 <div className="humidity">湿度 {item.main.humidity}%</div>
                 {/* {item.rain?.['3h'] && (

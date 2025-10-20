@@ -17,6 +17,9 @@ function App() {
   const zipCode = params.get("zipcode")
     ? parseInt(params.get("zipcode")!)
     : 1920015;
+  const weatherItem = params.get("weather-item")
+    ? parseInt(params.get("weather-item")!)
+    : 6;
 
   const [maxItems, setMaxItems] = useState(initialMaxItems);
   const [showOverlay, setShowOverlay] = useState(false);
@@ -84,7 +87,7 @@ function App() {
             <Clock />
           </div>
           <div className="weather">
-            <Weather zipCode={zipCode} />
+            <Weather zipCode={zipCode} weatherItem={weatherItem} />
           </div>
         </div>
         <div className="section1">
